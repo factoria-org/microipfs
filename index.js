@@ -4,11 +4,14 @@ var { I } = require('ipfsio')
 var express = require('express')
 var app = express()
 var i = new I(process.env.NFT_STORAGE_KEY)
+const allowed = process.env.ALLOWED.split(",")
 app.use(express.json())
 app.use(express.static('public'))
-app.use(cors({
-  origin: process.env.WHITELIST.split(",")
-}))
+if (allowed && allowed.length > 0) {
+  app.use(cors({ origin: allowed }))
+} else {
+  app.use(cors())
+}
 app.use(express.urlencoded({ extended: true }));
 app.post('/add', async (req, res) => {
   let cid;
