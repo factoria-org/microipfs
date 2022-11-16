@@ -5,6 +5,7 @@ var express = require('express')
 var app = express()
 var i = new I(process.env.NFT_STORAGE_KEY)
 const allowed = (process.env.ALLOWED ? process.env.ALLOWED.split(",") : [])
+const port = (process.env.PORT ? process.env.PORT : 3000)
 app.use(express.json())
 app.use(express.static('public'))
 if (allowed && allowed.length > 0) {
@@ -23,4 +24,4 @@ app.post('/add', async (req, res) => {
   console.log("cid", cid)
   res.json({ success: cid })
 })
-app.listen(process.env.PORT)
+app.listen(port)

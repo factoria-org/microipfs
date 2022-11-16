@@ -20,15 +20,30 @@ Install dependencies
 npm install
 ```
 
+
+## 2. Connect with NFT.STORAGE
+
+create an `.env` file inside the microipfs folder and,
+
+- enter `NFT_STORAGE_KEY`: The NFT STORAGE API KEY
+- (optional) enter `ALLOWED`: A comma separated string of host HTTP URLs
+- (optional) enter `PORT`: The port to run the server from
+
+Example
+
+```
+NFT_STORAGE_KEY=<eyJhbCg.....
+WHITELIST=https://myapp.com,http://localhost:8080
+PORT=3000
+```
+
+## 3. Start the server
+
 Start the server
 
 ```
 npm start
 ```
-
-## 2. Connect with NFT.STORAGE
-
-create an `.env` file inside the microipfs folder and write down `NFT_STORAGE_KEY`
 
 # usage
 
